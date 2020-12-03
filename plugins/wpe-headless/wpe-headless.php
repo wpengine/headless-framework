@@ -38,6 +38,8 @@ require WPE_HEADLESS_DIR . '/includes/settings/callbacks.php';
 require WPE_HEADLESS_DIR . '/includes/updates/callbacks.php';
 require WPE_HEADLESS_DIR . '/includes/utilities/callbacks.php';
 
+require_once WPE_HEADLESS_DIR . '/themes/index.php';
+
 if ( wpe_headless_is_events_enabled() ) {
 	require WPE_HEADLESS_DIR . '/includes/events/callbacks.php';
 }
