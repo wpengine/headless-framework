@@ -1,0 +1,72 @@
+name: Possibly publish NPM Packages
+
+on:
+  push:
+    branches:
+      - canary
+    paths:
+      - 'packages/core/package.json'
+      - 'packages/react/package.json'
+      - 'packages/next/package.json'
+
+jobs:
+  publish-core:
+    name: Possibly publish core to NPM
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/core
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: npm install
+      - run: npm run build
+      - run: npm test
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          access: 'public'
+          dry-run: TRUE
+          check-version: TRUE
+  publish-react:
+    name: Possibly publish react to NPM
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/react
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: npm install
+      - run: npm run build
+      - run: npm test
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          access: 'public'
+          dry-run: TRUE
+          check-version: TRUE
+  publish-next:
+    name: Possibly publish next to NPM
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/next
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: npm install
+      - run: npm run build
+      - run: npm test
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          access: 'public'
+          dry-run: TRUE
+          check-version: TRUE
