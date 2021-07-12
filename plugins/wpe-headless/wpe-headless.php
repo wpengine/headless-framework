@@ -36,6 +36,7 @@ require WPE_HEADLESS_DIR . '/includes/replacement/callbacks.php';
 require WPE_HEADLESS_DIR . '/includes/replacement/graphql-callbacks.php';
 require WPE_HEADLESS_DIR . '/includes/graphql/callbacks.php';
 require WPE_HEADLESS_DIR . '/includes/rest/callbacks.php';
+require WPE_HEADLESS_DIR . '/includes/rest/url.php';
 require WPE_HEADLESS_DIR . '/includes/settings/callbacks.php';
 require WPE_HEADLESS_DIR . '/includes/updates/callbacks.php';
 require WPE_HEADLESS_DIR . '/includes/utilities/callbacks.php';
